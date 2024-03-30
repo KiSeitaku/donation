@@ -1,0 +1,75 @@
+{include file="common/head" /}
+
+<main>
+    <!-- Our Portfolio breadcrumb start -->
+    <div class="wrapper-box p-relative">
+        <div class="breadcrumb-bg" data-background="{$bannerInfo.news.cover}"></div>
+        <div class="breadcrumb-area pt-265 pb-230">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__content text-center">
+                            <h1 class="breadcrumb__title">{$bannerInfo.news.title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Portfolio breadcrumb end -->
+    <style>
+        .ellipsis {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2; /* 控制最大行数 */
+            -webkit-box-orient: vertical;
+        }
+    </style>
+    <!-- our portfolio area start -->
+    <div class="our-portfolio-area pt-90 pb-130">
+        <div class="container">
+            <div class="row">
+
+            {volist name="list" id="vo"}
+                <!-- 列表循环开始 -->
+                <div class="col-lg-6">
+                    <div class="our-portfolio-wrapper mt-40 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                        <div class="our-portfolio-thumb" style="height: 375px;overflow: hidden">
+                            <!-- 新闻列表图片 -->
+                            <a href="{:url('@index/news/detail',['id'=>$vo.id])}"><img src="{$vo.cover}"
+                                                                 alt=""></a>
+                        </div>
+                        <div class="our-portfolio-content">
+                            <!-- 新闻列表标题 -->
+                            <h3 class="portfolio-title ellipsis" style="height: 60px"><a href="{:url('@index/news/detail',['id'=>$vo.id])}">{$vo.title}</a></h3>
+                            <!-- 新闻列表副标题 -->
+                            <p style="height: 55px" class="ellipsis">{$vo.desc}</p>
+                            <div class="our-portfolio-btn">
+                                <!-- 点击跳转新闻详情 -->
+                                <a href="{:url('@index/news/detail',['id'=>$vo.id])}">View Case Studies <i
+                                        class="fa-regular fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+
+                <!-- 列表循环结束 -->
+            </div>
+            <!-- 项目列表循环结束 -->
+            <div class="donation-list-pagination wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                <nav class="donation-pagination mt-20" aria-label="...">
+                    <ul class="pagination justify-content-center">
+                        {$list->render()}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- our portfolio area end -->
+
+</main>
+
+
+{include file="common/footer" /}

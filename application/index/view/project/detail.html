@@ -1,0 +1,419 @@
+{include file="common/head" /}
+<!-- Meta Pixel Code -->
+<script>
+    fbq('track', 'Project_{$info.id}');
+    ttq.track('ViewContent', {
+        "value": '{$info.default_price}', // number. Value of the order or items sold. Example: 100.
+        "currency": 'USD', // string. The 4217 currency code. Example: "USD".
+        "contents": [
+            {
+                "content_id": "{$info.id}", // string. ID of the product. Example: "1077218".
+                "content_type": "product", // string. Either product or product_group.
+                "content_name": "product_{$info.id}", // string. The name of the page or product. Example: "shirt".
+                "price": '{$info.default_price}', // number. The price of a single item. Example: 25.
+            }
+        ]
+    })
+</script>
+<main>
+    <!-- donation details breadcrumb start -->
+    <div class="wrapper-box p-relative">
+        <!--        <div class="breadcrumb-bg" data-background="{$info.home_image}"></div>-->
+        <!--        <div class="breadcrumb-area pt-265 pb-230">-->
+        <!--            <div class="container">-->
+        <!--                <div class="row">-->
+        <!--                    <div class="col-xl-12">-->
+        <!--                        <div class="breadcrumb__content text-center">-->
+        <!--                            <h1 class="breadcrumb__title"></h1>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </div>
+    <!-- donation details breadcrumb end -->
+
+    <!-- donation details area start -->
+    <div class="donation-details-area pt-100 pb-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="donation-details-item">
+                        <div class="donation-card-box donaion-details">
+                            <div class="card-item">
+                                <div class="tpcard__wrapper donation-details">
+                                    <!--<div class="tpcard__thumb donation-details">-->
+                                    <!-- 主图 -->
+                                    <!--    <img src="{$info.cover_image}" alt="">-->
+                                    <!--</div>-->
+                                    <div class="tpcard__content donation-details">
+                                        <h4 class="tpcard__title donation-details">{$info.title}
+                                        </h4>
+                                        <div class="tpcard__progresss">
+                                            <div class="progress donation-details">
+                                                <div class="progress-bar donation-details" role="progressbar"
+                                                     aria-label="Example with label" style="width: {$rate+3}%;"
+                                                     aria-valuenow="25"
+                                                     aria-valuemin="0" aria-valuemax="100">
+                                                    <span>{$rate}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tpcard__bottom d-flex justify-content-between">
+                                            <div class="tpcard__details donation-details">
+                                                <span class="subtitle">our goal</span> <br>
+                                                <!-- 预计募集金额 -->
+                                                <span class="sale">${$info.goal}</span>
+                                            </div>
+                                            <div class="tpcard__details donation-details">
+                                                <span class="subtitle text-center">raise</span> <br>
+                                                <!-- 最小募集金额 -->
+                                                <span class="sale">${$info.minimum}</span>
+                                            </div>
+                                            <div class="tpcard__details donation-details">
+                                                <span class="subtitle text-end">people</span> <br>
+                                                <!-- 最大募集金额 -->
+                                                <span class="sale">{$info.maxmum}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="donation-details-text mt-20">
+                            <!-- 项目详情富文本字段 -->
+                            <p class="mb-10" style="text-align: justify;text-justify: distribute;">
+                                {$info.subtitle}
+                            </p>
+                        </div>
+
+                        {notempty name="$info.news_info"}
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <div class="donation-payment align-items-center mb-10">
+                                    <h3 class="donation-payment-title">News Information</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="donation-error-notification ">
+                            <span>{$info.news_info.title}</span>
+                            <div class="donation-btn">
+                                <a class="tp-btn tp-btn-shine-effect"
+                                   href="{:url('@index/news/detail',['id'=>$info.news_info.id])}">Read more</a>
+                            </div>
+                        </div>
+                        {/notempty}
+
+                        <!-- 富文本详情原来在这里，现在移动到最底部 -->
+
+                    </div>
+                </div>
+                <style>
+                    .btnCur {
+                        background: #121212 !important;
+                        border-color: #121212 !important;
+                        color: #fff !important;
+                    }
+
+                    /* CSS */
+                    @media only screen and (max-width: 768px) {
+                        /* 在这里编写针对手机端样式的代码 */
+                        #target {
+                            /*display: none;*/
+                            position: fixed;
+                            bottom: -100%; /* 初始时隐藏在底部之外 */
+                            width: 100%;
+                            z-index: 9999;
+                            transition: bottom 0.5s ease-out; /* 添加过渡效果 */
+                        }
+
+                        #target.show {
+                            bottom: 0; /* 动画结束时显示在底部 */
+                        }
+
+                        #target.hides {
+                            bottom: -100%; /* 动画结束时显示在底部 */
+                        }
+
+                        .payBtnList {
+                            /*width: 30% !important;*/
+                            font-size: 10px;
+                        }
+
+                        .payBtnObj {
+
+                        }
+
+                        .donation-payment-method button {
+                            padding: 6px 8px;
+                        }
+
+                        .pay_title {
+                            font-size: 10px !important;
+                        }
+
+                        .pay-detail {
+                            display: block !important;
+                            position: fixed;
+                            bottom: 20px;
+                            width: 80%;
+                            left: 10%;
+                            z-index: 998;
+                        }
+
+                        .closeTarget {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .btnCenter {
+                            width: 30px;
+                            border-radius: 20px;
+                            background-color: #EB9309;
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .projectContent {
+                            display: none;
+                        }
+                    }
+
+                    @media only screen and (min-width: 769px) {
+                        /* 这里放你的样式 */
+                        .closeTarget {
+                            display: none;
+                        }
+
+                        .projectDesc {
+                            display: none;
+                        }
+                    }
+                </style>
+                <div class="col-lg-4" id="target" data-wow-duration="1s" data-wow-delay=".3s">
+                    <div class="right-padding pl-25">
+                        <div class="closeTarget">
+                            <div class="btnCenter" onclick="closeTarget()"><i style="font-size: 30px;color: white"
+                                                                              class="fa-solid fa-xmark"></i></div>
+                        </div>
+                        <!-- 在此处调用支付，填写表单 -->
+                        <div class="sidebar__widget-contact" id="chosePrice">
+                            <h3 class="sidebar__widget-title donation-details contact pay_title">{$info.pay_title}</h3>
+                            <span class=" ">{$info.pay_desc}</span>
+                            <div style="font-size: 50px; text-align: center;margin: 40px; font-weight: bold;"
+                                 id="payPrice">${$info.default_price}
+                            </div>
+                            <div>
+                                <div class="donation-payment-method d-flex flex-wrap justify-content-start payBtnObj">
+                                    {volist name='$info.pay_list' id="vo"}
+                                    <button style="margin-bottom: 10px;" class="payBtnList"
+                                            onclick="payPrice(this,{$vo.pay_fee})" type="button">${$vo.pay_fee}
+                                    </button>
+                                    {/volist}
+                                    <button style="margin-bottom: 10px;" class="payBtnList" onclick="randomPrice(this)"
+                                            type="button">Random
+                                    </button>
+                                </div>
+                            </div>
+                            <span class=" pay_title">Please be aware that a fixed transaction fee of {$info.rate *100}% applies when using our third-party payment tool. Consider adding a tip to cover these fees and support our website. Thank you for your support!</span>
+                            <div class="sidebar-btn">
+                                <button class="tp-btn tp-btn-shine-effect" onclick="payNow()" style="width: 100%;">
+                                    DONATE NOW
+                                </button>
+                            </div>
+                        </div>
+                        <div class="sidebar__widget-contact" id="payFrom" style="display:none;">
+                            <i class="fa-regular fa-arrow-left"
+                               style="font-size: 20px;margin-bottom: 10px;cursor: pointer" onclick="goBack()"></i>
+                            <h3 class="sidebar__widget-title donation-details contact">{$info.pay_title}</h3>
+                            <span class=" ">{$info.pay_desc}</span>
+                            <div style="font-size: 50px; text-align: center;margin: 40px; font-weight: bold;"
+                                 id="payPalPrice">${$info.default_price}
+                            </div>
+                            <div id="payPalModel"></div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+
+                </style>
+                <!-- 项目详情富文本详情 -->
+                <!--手机端展示-->
+                <div class="donation-details-text projectDesc" style="width: 90%;
+    margin-left: 5%;">
+                    <p class="mb-30">
+                        {$info.desc}
+                    </p>
+                </div>
+                <!--PC端展示-->
+                <div class="donation-details-text mt-60 projectContent">
+                    <p class="mb-30">
+                        {$info.content}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-btn pay-detail" style="display:none;">
+            <button class="tp-btn tp-btn-shine-effect" onclick="showPayModel()" style="width: 100%;">DONATE NOW</button>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=AXbo4zK3y_cpZa6yw7tDMjffKU-MjdlCOXN_5fTRj_821zwCqoG1942sfwpspHBM3N8xvz7hwioxmsFd"></script>
+    <!--    <script src="https://www.paypal.com/sdk/js?client-id=AblO0r95LtYofvhX0hmdBZQMQrh6ZmofgPvQjNNGkmjLZ1GT-Y7rfLzjygxUoObu7y_T4d8eES0yWNTc"></script>-->
+
+    <script>
+
+
+        function closeTarget() {
+            var targetDiv = document.getElementById('target');
+            targetDiv.classList.remove('show');
+            targetDiv.classList.add('hides');
+        }
+
+        function showPayModel() {
+            var targetDiv = document.getElementById('target');
+            targetDiv.classList.add('show');
+            targetDiv.classList.remove('hides');
+        }
+        showPayModel()
+        let PayPrice = {$info.default_price};
+
+        function goBack() {
+            $('#chosePrice').show()
+            $('#payFrom').hide()
+        }
+
+        function createPayPalOrder(price) {
+            $('#payPalModel').html('')
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    ttq.track('AddPaymentInfo', {
+                        "value": price, // number. Value of the order or items sold. Example: 100.
+                        "currency": 'USD', // string. The 4217 currency code. Example: "USD".
+                        "contents": [
+                            {
+                                "content_id": "{$info.id}", // string. ID of the product. Example: "1077218".
+                                "content_type": 'product', // string. Either product or product_group.
+                                "content_name": 'product_{$info.id}', // string. The name of the page or product. Example: "shirt".
+                                "price": price, // number. The price of a single item. Example: 25.
+                            }
+                        ]
+                    })
+                    ttq.track('InitiateCheckout', {
+                        "value": price, // number. Value of the order or items sold. Example: 100.
+                        "currency": 'USD', // string. The 4217 currency code. Example: "USD".
+                        "contents": [
+                            {
+                                "content_id": "{$info.id}", // string. ID of the product. Example: "1077218".
+                                "content_type": 'product', // string. Either product or product_group.
+                                "content_name": 'product_{$info.id}', // string. The name of the page or product. Example: "shirt".
+                                "price": price, // number. The price of a single item. Example: 25.
+                            }
+                        ]
+                    })
+                    // 创建订单
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: price // 订单金额
+                            }
+                        }]
+                    });
+                },
+                onApprove: function (data, actions) {
+
+
+                    // 支付批准后的回调
+                    return actions.order.capture().then(function (details) {
+                        // 支付成功后的逻辑
+                        var id = details.id;
+                        var email_address = details.payer.email_address;
+                        var country_code = details.payer.address.country_code;
+                        var given_name = details.payer.name.given_name;
+                        var payer_id = details.payer.payer_id;
+                        var orderId = details.purchase_units[0].payments.captures[0].id;
+                        var status = details.purchase_units[0].payments.captures[0].status;
+                        // 可以在这里处理订单信息等
+                        if (details.status == "COMPLETED") {
+                            // 支付成功
+                            let ttclid = getCookie('ttclid'); // TikTok Click ID
+                            let _ttp = getCookie('_ttp'); //Cookie id
+                            $.post('/api/order/payPal', {
+                                project_id: "{$info.id}",
+                                email_address: email_address,
+                                country_code: country_code,
+                                given_name: given_name,
+                                payer_id: payer_id,
+                                order_id: orderId,
+                                status: status,
+                                pay_id: id,
+                                price: PayPrice,
+                                ttclid: ttclid,
+                                _ttp: _ttp,
+                            }, function (data) {
+                                if (data.code) {
+                                    fbq('track', 'Purchase', {value: PayPrice, currency: 'USD'});
+                                    gtag('event', 'conversion', {
+                                        'send_to': 'AW-16482517787/yejoCPCHn5oZEJuGvbM9',
+                                        'value': PayPrice,
+                                        'currency': 'USD',
+                                        'transaction_id': data.data
+                                    });
+                                    alert('Payment successful');
+                                    location.reload()
+                                }
+                            })
+                        }
+
+                    });
+                }
+            }).render('#payPalModel');
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randomPrice(obj) {
+            $('.payBtnList').removeClass('btnCur')
+            $(obj).addClass('btnCur')
+            let price = getRandomInt({$info.min_fee ?? 1}, {$info.max_fee ?? 1000});
+            price = price + price * ('{$info.rate}' * 1)
+            $('#payPrice').html('$' + price)
+            $('#payPalPrice').html('$' + price)
+            PayPrice = price;
+        }
+
+        function payPrice(obj, price) {
+            price = price + price * ('{$info.rate}' * 1)
+            $('.payBtnList').removeClass('btnCur')
+            $(obj).addClass('btnCur')
+            $('#payPrice').html('$' + price)
+            $('#payPalPrice').html('$' + price)
+            PayPrice = price;
+        }
+
+        function payNow() {
+            $('#chosePrice').hide();
+            $('#payFrom').show();
+            fbq('track', 'initiateCheckout')
+            fbq('track', 'Donate')
+            createPayPalOrder(PayPrice)
+        }
+
+        function getCookie(name) {
+            let cookie = {};
+            document.cookie.split(';').forEach(function (el) {
+                let [k, v] = el.split('=');
+                cookie[k.trim()] = v;
+            })
+            return cookie[name];
+        }
+    </script>
+    <!-- Blog details area end -->
+
+</main>
+
+{include file="common/footer" /}

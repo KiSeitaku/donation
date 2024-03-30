@@ -1,0 +1,290 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{$site.name|htmlentities}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="{$site.website_icon|htmlentities}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="__CDN__/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/animate.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/slick.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/nouislider.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/backtotop.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/nice-select.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/font-awesome-pro.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/spacing.css">
+    <link rel="stylesheet" href="__CDN__/assets/css/main.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16482517787"></script>
+
+
+    <!--tiktok Pixel CodeCode-->
+    <script> !function (w, d, t) {
+        w.TiktokAnalyticsObject = t;
+        var ttq = w[t] = w[t] || [];
+        ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], ttq.setAndDefer = function (t, e) {
+            t[e] = function () {
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+        };
+        for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+        ttq.instance = function (t) {
+            for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+            return e
+        }, ttq.load = function (e, n) {
+            var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+            ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = i, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
+            var o = document.createElement("script");
+            o.type = "text/javascript", o.async = !0, o.src = i + "?sdkid=" + e + "&lib=" + t;
+            var a = document.getElementsByTagName("script")[0];
+            a.parentNode.insertBefore(o, a)
+        };
+        ttq.load('CNONJ1RC77U9EENKO3BG');
+        ttq.page();
+    }(window, document, 'ttq'); </script>
+
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1620309085439814');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <!--    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1620309085439814&ev=PageView&noscript=1" />-->
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    <script src="__CDN__/assets/js/axios.min.js"></script>
+    <script src="__CDN__/assets/js/vendor/jquery.js"></script>
+    <script src="__CDN__/assets/js/bootbox.min.js" async></script>
+</head>
+
+<body>
+<style>
+    .home_top {
+        color: #EB9309 !important;
+    }
+</style>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'AW-16482517787');
+</script>
+
+<header id="header-sticky" class="transparent-header header__sticky" style="background-color: #121212">
+    <div class="header-area header-area-2 header__space pt-10">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-xl-2 col-lg-2 col-md-6 col-6">
+                    <div class="logo">
+                        <a href="{:url('@index/index/index')}">
+                            <img alt="logo" src="{$site.website_icon|htmlentities}">
+                        </a>
+                    </div>
+                </div>
+                <div class="d-none d-xl-block col-xl-6 col-lg-6">
+                    <div class="main-menu main-menu-2 menu__space">
+                        <nav id="tp-mobile-menu">
+                            <ul>
+                                <li>
+                                    <a {if condition="$path =='index/index/index'" } class="home_top" {/if}
+                                    href="{:url('@index/index/index')}">Home</a>
+                                </li>
+                                <li>
+                                    <a {if condition="$controller =='Project'" } class="home_top" {/if}
+                                    href="{:url('@index/project/index')}">Project</a>
+                                </li>
+                                <li>
+                                    <a {if condition="$path =='index/about/index'" } class="home_top" {/if}
+                                    href="{:url('@index/about/index')}">About us</a>
+                                </li>
+                                <li>
+                                    <a {if condition="$path =='index/faq/index'" } class="home_top" {/if}
+                                    href="{:url('@index/faq/index')}">FAQ</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 col-6">
+                    <div class="header-right d-none d-lg-flex align-items-center justify-content-end">
+                        <div class="header-btn">
+                            <a class="tp-btn tp-btn-shine-effect" href="#target"><span>Donate now</span></a>
+                        </div>
+                        <div style="margin-left: 34px;">
+                            <img src="__CDN__/assets/img/language.png" style="width: 34px;height: 34px;"
+                                 id="select_lang">
+                        </div>
+                    </div>
+                    <div class="mobile-menu d-xl-none">
+                        <button class="tp-side-action tp-toogle hamburger-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<div class="fix">
+    <div class="tp-side-info">
+        <div class="tp-side-logo">
+            <a href="{:url('@index/index/index')}"></a>
+        </div>
+        <div class="tp-side-close">
+            <button><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="tp-mobile-menu-pos"></div>
+        <div class="tp-side-content">
+            <div class="tp-side-content__inner-btn mb-100">
+            </div>
+            <div class="tp-contact-info d-flex flex-column"></div>
+            <div class="tpfooter__social tpside-social">
+                {volist name="$linkList" id='vo'}
+                <a href="{$vo.path}"><i class="fa-brands {$vo.icon}"></i></a>
+                {/volist}
+            </div>
+        </div>
+        <lang style="display:block;width: 100%;padding: 20px 0;color: var(--tp-common-black);border-top: 1px solid #c7c5c5;font-size: 14px;line-height: 1.5;font-weight: 700;"  id="select_lang_m">
+            Language
+        </lang>
+    </div>
+    <div class="offcanvas-overlay"></div>
+</div>
+
+<script>
+    $('#select_lang').on('click', () => {
+        $('#header-sticky').append('<div class="dialog-box" id="lang_box">\n' +
+            '    <div class="lang-box">\n' +
+            '        <p class="lang-item lang_set" data-name="en">English</p>\n' +
+            '        <p class="lang-item lang_set" data-name="zh-CHS">简体中文</p>\n' +
+            '        <p class="lang-item lang_set" data-name="zh-CHT">正體中文</p>\n' +
+            '        <p class="lang-item lang_set" data-name="de">Deutsch</p>\n' +
+            '        <p class="lang-item lang_set" data-name="es">español</p>\n' +
+            '        <p class="lang-item lang_set" data-name="fr">Français</p>\n' +
+            '        <p class="lang-item lang_set" data-name="id">indonésien</p>\n' +
+            '        <p class="lang-item lang_set" data-name="it">Italiano</p>\n' +
+            '        <p class="lang-item lang_set" data-name="ja">日本語</p>\n' +
+            '        <p class="lang-item lang_set" data-name="ko">한국인</p>\n' +
+            '        <p class="lang-item lang_set" data-name="ar">عربي</p>\n' +
+            '    </div>\n' +
+            '</div>')
+    })
+    $('#header-sticky').on('click', '#lang_box', function () {
+        $(this).remove(); // 移除被点击的 #lang_box 元素
+    });
+
+    $('#header-sticky').on('click', '.lang_set', function () {
+        // 获取点击的 #lang_set 元素的 data-name 属性值
+        var dataName = $(this).data('name');
+        $.ajax({
+            url: '/api/index/lang',
+            data: {lang: dataName},
+            success: () => {
+                location.reload()
+            }
+        })
+    });
+
+    $('#select_lang_m').on('click', () => {
+        $('.tp-side-info').append('<div class="dialog-box" id="lang_box">\n' +
+            '    <div class="lang-box">\n' +
+            '        <p class="lang-item lang_set" data-name="en">English</p>\n' +
+            '        <p class="lang-item lang_set" data-name="zh-CHS">简体中文</p>\n' +
+            '        <p class="lang-item lang_set" data-name="zh-CHT">正體中文</p>\n' +
+            '        <p class="lang-item lang_set" data-name="de">Deutsch</p>\n' +
+            '        <p class="lang-item lang_set" data-name="es">español</p>\n' +
+            '        <p class="lang-item lang_set" data-name="fr">Français</p>\n' +
+            '        <p class="lang-item lang_set" data-name="id">indonésien</p>\n' +
+            '        <p class="lang-item lang_set" data-name="it">Italiano</p>\n' +
+            '        <p class="lang-item lang_set" data-name="ja">日本語</p>\n' +
+            '        <p class="lang-item lang_set" data-name="ko">한국인</p>\n' +
+            '        <p class="lang-item lang_set" data-name="ar">عربي</p>\n' +
+            '    </div>\n' +
+            '</div>')
+    })
+
+    $('.tp-side-info').on('click', '#lang_box', function () {
+        $(this).remove(); // 移除被点击的 #lang_box 元素
+    });
+
+    $('.tp-side-info').on('click', '.lang_set', function () {
+        // 获取点击的 #lang_set 元素的 data-name 属性值
+        var dataName = $(this).data('name');
+        $.ajax({
+            url: '/api/index/lang',
+            data: {lang: dataName},
+            success: () => {
+                location.reload()
+            }
+        })
+    });
+
+</script>
+<style>
+    .dialog-box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000000;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        outline: 0;
+    }
+
+    .lang-box {
+        position: absolute;
+        top: 82px;
+        right: 0.7rem;
+        width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 12px;
+        box-sizing: border-box;
+        box-shadow: 2px 2px 16px #aaa;
+    }
+
+    .lang-item {
+        width: 100%;
+        padding: 14px 0;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,130 @@
+<!-- footer area start -->
+<footer class="bg-black">
+    <div class="footer-social-area pt-70">
+        <div class="container">
+            <div class="tpborder-bottom pb-35">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 ">
+                        <div class="tpfooter__logo mb-30">
+                            <a href="{:url('@index/index/index')}">
+                                <img src="__CDN__/assets/img/logo/footer-logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 隐藏三方社交功能 -->
+<!--                     <div class="col-xl-6 col-lg-6 col-md-6 ">
+                        <div class="tpfooter__social text-start text-md-end">
+                            <a href="{$third.facebook|htmlentities}"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="{$third.twitter|htmlentities}"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="{$third.behance|htmlentities}"><i class="fa-brands fa-behance"></i></a>
+                            <a href="{$third.youtube|htmlentities}"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="{$third.linkedin_in|htmlentities}"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-widget-area">
+        <div class="container">
+            <div class="tpborder-bottom pt-35 pb-50 mb-20 mt-20">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-6 col-6">
+                        <div class="tpfooter-widget tp-footer-col-1">
+                            <h3 class="tpfooter-widget__title">
+                                Product
+                            </h3>
+                            <ul>
+                                {volist name="$oneCategoryList" id="vo"}
+                                <li><a href="{:url('@index/project/index',['one_category_id'=>$vo.id])}">{$vo.name}</a></li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-6 col-6">
+                        <div class="tpfooter-widget tp-footer-col-2">
+                            <h3 class="tpfooter-widget__title">
+                                About us
+                            </h3>
+                            <ul>
+                                <li><a href="{:url('@index/about/index')}">About us</a></li>
+                                <!-- 隐私协议-富文本 -->
+                                <li><a href="{:url('@index/privacy_policy/index')}"> Privacy Policy</a></li>
+                                <!-- 条件条款-富文本 -->
+                                <li><a href="{:url('@index/terms/index')}">Terms of Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-4 col-6">
+                        <div class="tpfooter-widget tp-footer-col-3">
+                            <h3 class="tpfooter-widget__title">
+                                Links
+                            </h3>
+                            <ul>
+                                <!-- 跳转新闻列表 -->
+                                <li><a href="{:url('@index/news/index')}">News disclosure</a></li>
+                                <!-- 跳转faq.htnl -->
+                                <li><a href="{:url('@index/faq/index')}">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-8 col-12">
+                        <div class="tpfooter-widget tp-footer-col-4">
+                            <h3 class="tpfooter-widget__title">
+                                Contact us
+                            </h3>
+                            <div style="color:white;" class="tpfooter-subscribe p-relative mb-20">
+                                The Home of on Hong<br>
+                                <a style="color: white!important;" href="tel:85253797608">Tel:‪+852 5379 7608</a><br>
+                                Email:support@donation-home-hong.org<br>
+                                Add:Room B,4/F,Cumberland Building 227 Nathan Road,Jordan,Hong Kong
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright-area pb-50">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-8 col-lg-6 col-md-6">
+                    <div class="tp-copyright">
+                        <p>Copyright@The Home of on Hong 2024 all right <a href="{:url('@index/about/index')}"></a></p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="d-flex justify-content-md-end backtop">
+                        <div class="tp-backtop">
+                            <button type="button" class="back-to-top-btn">
+                                <span>Scroll Top</span>
+                                <span><i class="fa-thin fa-arrow-up"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer area end -->
+<!-- JS here -->
+<script src="__CDN__/assets/js/vendor/jquery.js"></script>
+<script src="__CDN__/assets/js/vendor/waypoints.js"></script>
+<script src="__CDN__/assets/js/bootstrap-bundle.js"></script>
+<script src="__CDN__/assets/js/jquery.meanmenu.js"></script>
+<script src="__CDN__/assets/js/swiper-bundle.js"></script>
+<script src="__CDN__/assets/js/slick.min.js"></script>
+<script src="__CDN__/assets/js/nouislider.js"></script>
+<script src="__CDN__/assets/js/magnific-popup.js"></script>
+<script src="__CDN__/assets/js/parallax.js"></script>
+<script src="__CDN__/assets/js/nice-select.js"></script>
+<script src="__CDN__/assets/js/purecounter.js"></script>
+<script src="__CDN__/assets/js/wow.js"></script>
+<script src="__CDN__/assets/js/isotope-pkgd.js"></script>
+<script src="__CDN__/assets/js/imagesloaded-pkgd.js"></script>
+<script src="__CDN__/assets/js/ajax-form.js"></script>
+<script src="__CDN__/assets/js/main.js"></script>
+</body>
+
+</html>

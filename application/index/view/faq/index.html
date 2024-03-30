@@ -1,0 +1,80 @@
+{include file="common/head" /}
+<main>
+    <!-- Ask question breadcrumb start -->
+    <div class="wrapper-box p-relative">
+        <div class="breadcrumb-bg" data-background="{$bannerInfo.faq.cover}"></div>
+        <div class="breadcrumb-area pt-265 pb-265">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__content text-center">
+                            <h1 class="breadcrumb__title">{$bannerInfo.faq.title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ask question breadcrumb end -->
+
+    <!-- faq accordion start -->
+    <div class="faq-accordion-area pt-75 pb-130">
+        <div class="container">
+            <div class="row">
+                <style>
+                    .tp-custom-accordion .accordion-buttons::after{
+                        position: absolute;
+                        content: "\f063";
+                        font-family: "Font Awesome 5 Pro";
+                        background-image: none;
+                        top: 40px;
+                        right: 45px;
+                        width: auto;
+                        height: auto;
+                        font-weight: 400;
+                        font-size: 25px;
+                        letter-spacing: 0.05em;
+                        color: #F5F5F5;
+                    }
+                </style>
+                <div class="col-lg-12">
+                    <div class="tp-custom-accordion">
+                        <div class="accordion" id="accordionExample">
+                            {volist name="list" id="vo"}
+                            <div class="accordion-items faq-accordio-border  wow fadeInUp" data-wow-duration="1s"
+                                 data-wow-delay=".3s">
+                                <h2 class="accordion-header" id="headingOne{$vo.id}">
+                                    <!-- 问题标题 -->
+                                    <button class="accordion-buttons"  type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne{$vo.id}" aria-expanded="true" aria-controls="collapseOne{$vo.id}">
+                                        {$vo.title}
+                                    </button>
+                                </h2>
+                                <!--collapse 默认都开启-->
+                                <div id="collapseOne{$vo.id}" class="accordion-collapse" aria-labelledby="headingOne{$vo.id}"
+                                     data-bs-parent="#accordionExample">
+                                    <!-- 问题答案 -->
+                                    <div class="accordion-body">
+                                        {$vo.content}
+                                    </div>
+                                </div>
+                            </div>
+                            {/volist}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 项目列表循环结束 -->
+            <div class="donation-list-pagination wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                <nav class="donation-pagination mt-20" aria-label="...">
+                    <ul class="pagination justify-content-center">
+                        {$list->render()}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- faq accordion end -->
+</main>
+
+{include file="common/footer" /}

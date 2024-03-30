@@ -1,0 +1,91 @@
+{include file="common/head" /}
+
+<main>
+    <!-- portfolio details breadcrumb start -->
+    <div class="wrapper-box p-relative">
+        <div class="breadcrumb-bg" data-background="{$bannerInfo.news_detail.cover}"></div>
+        <div class="breadcrumb-area pt-265 pb-230">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__content text-center">
+                            <h1 class="breadcrumb__title">{$bannerInfo.news_detail.title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- portfolio details breadcrumb end -->
+
+    <!-- portfolio details area start -->
+    <div class="portfolio-details-area pt-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                    <div class="service-section portfolio-section mt-30">
+                        <!-- 新闻标题 -->
+                        <!-- 新闻图片 -->
+                        <img src="{$info.cover}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s">
+                    <div class="portfolio-details mt-30">
+                        <span class="portfolio-details-title">Detail</span>
+                        <p>{$info.desc}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="portfolio-details-wrapper">
+                                <span class="portfolio-details-name">Project:</span>
+                                <!-- 作者 -->
+                                <p>{$info.project}</p>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="portfolio-details-wrapper portfolio-margin">
+                                <span class="portfolio-details-name">Read</span>
+                                <!-- 阅读人数 -->
+                                <p>{$info.read}</p>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="portfolio-details-wrapper portfolio-margin">
+                                <span class="portfolio-details-name">Date:</span>
+                                <p> {$info.create_time}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- portfolio details area end -->
+
+    <!-- portfolio details thumb video area start-->
+    <div class="portfolio-details-thumb-video wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="portfolio-details-img p-relative">
+                        <!-- 新闻图片 -->
+                        <h3 class="service-title">{$info.title}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- portfolio details thumb video area  end-->
+
+    <!-- 新闻详情富文本开始 -->
+    <div class="portfolio-details-area-2 pt-80 pb-50">
+        <div class="container">
+            <div class="row">
+                <p>{$info.content}</p>
+            </div>
+        </div>
+    </div>
+    <!-- 新闻详情富文本结束 -->
+</main>
+
+{include file="common/footer" /}

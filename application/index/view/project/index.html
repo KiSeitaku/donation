@@ -1,0 +1,147 @@
+{include file="common/head" /}
+
+<!-- mobile menu style end -->
+<main>
+    <!-- donation listing breadcrumb start -->
+    <div class="wrapper-box p-relative">
+        <div class="breadcrumb-bg" data-background="{$bannerInfo.project.cover}"></div>
+        <div class="breadcrumb-area pt-265 pb-230">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__content text-center">
+                            <h1 class="breadcrumb__title">{$bannerInfo.project.title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- donation listing breadcrumb end -->
+
+    <!-- donation listing area start -->
+    <div class="donation-list-area pt-100 pb-130">
+        <div class="container">
+            <div class="row tp-gx-20">
+                <!-- 一级分类开始 -->
+                <style>
+                    .oneClass {
+                        background-color: #EB9309 !important;
+                        color: white !important;
+                        border-radius: 3px !important;
+                    }
+                </style>
+                <!---隐藏分类->
+                <!--<div class="justify-content-center">-->
+                <!--    <div class="col-xl-16">-->
+                <!--        <div class="our-mission-tab tp-tab">-->
+                <!--            <div class="our-mission-tab-inner  p-relative" style="margin-bottom: 20px">-->
+                <!--                <nav>-->
+                <!--                    <div class="nav nav-tabs justify-content-start" id="nav-tab" role="tablist">-->
+                <!--                        {volist name ='$oneCategoryList' id='vo'}-->
+                <!--                        <a style="margin-bottom: 10px;" href="{:url('@index/project/index',['one_category_id'=>$vo.id])}" class='nav-link {if condition="$one_category_id eq $vo.id"}oneClass{/if}'>{$vo.name}</a>-->
+                <!--                        {/volist}-->
+                <!--                    </div>-->
+                <!--                </nav>-->
+                <!--            </div>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+                <style>
+                    .second_a{
+                        background-color: #fff;
+                        color: #000;
+                        padding:20px;
+                        margin-right: 5px;
+                        margin-bottom: 5px;
+                        border-radius: 10px;
+                    }
+                    .second_b{
+                        background-color: #eb9309;
+                        color: white;
+                        padding:20px;
+                        margin-right: 5px;
+                        margin-bottom: 5px;
+                        border-radius: 10px;
+                    }
+                </style>
+                <!-- 二级分类开始 -->
+                <div class="col-xl-12">
+                    <div class=" justify-content-start tp-theme-primary" style="margin-bottom: 50px;margin-left: 20px">
+                        {volist name ='$twoCategoryList' id='vo'}
+                        <a  class='{if condition="$two_category_id neq $vo.id"}second_a {else /} second_b {/if}' style=""  href="{:url('@index/project/index',['one_category_id'=>$one_category_id,'two_category_id'=>$vo.id])}">{$vo.name}</a>
+                        {/volist}
+                    </div>
+                </div>
+                <style>
+                    .ellipsis {
+                        display: -webkit-box;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        -webkit-line-clamp: 2; /* 控制最大行数 */
+                        -webkit-box-orient: vertical;
+                    }
+                </style>
+                <!-- 二级分类结束 -->
+                {volist name="list" id="vo" key="k"}
+                <!-- 项目列表循环开始 -->
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="donation-card-box wow  {$vo.class_name}" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="card-item">
+                            <div class="tpcard__wrapper white-bg">
+                                <div class="tpcard__img" style="height: 263px">
+                                    <!-- 图片 -->
+                                    <a href="{:url('@index/project/detail',['id'=>$vo.id])}"><img src="{$vo.cover_image}" alt=""></a>
+                                </div>
+                                <div class="tpcard__content">
+                                    <!-- 主标题 -->
+                                    <h4 class="tpcard__title ellipsis" style="margin-bottom: 18px;height: 60px"><a href="{:url('@index/project/detail',['id'=>$vo.id])}">{$vo.title}</a>
+                                    </h4>
+                                    <!--进度-->
+                                    <div class="tpcard__progresss">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width:{$vo.rate+3}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <span>{$vo.rate}%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tpcard__bottom d-flex justify-content-between">
+                                        <div class="tpcard__details">
+                                            <!-- 预期募集 -->
+                                            <span class="subtitle">our goal</span> <br>
+                                            <span class="sale">${$vo.goal}</span>
+                                        </div>
+                                        <div class="tpcard__details">
+                                            <span class="subtitle">raise</span> <br>
+                                            <!-- 已募集 -->
+                                            <span class="sale">${$vo.minimum}</span>
+                                        </div>
+                                        <div class="tpcard__details">
+                                            <span class="subtitle">people</span> <br>
+                                            <!-- 参与人数 -->
+                                            <span class="sale">{$vo.maxmum}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+                <!-- 项目列表循环结束 -->
+                <div class="donation-list-pagination wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                    <nav class="donation-pagination mt-20" aria-label="...">
+                        <ul class="pagination justify-content-center">
+                            {$list->render()}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- donation listing area end -->
+
+</main>
+
+{include file="common/footer" /}

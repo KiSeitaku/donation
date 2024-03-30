@@ -1,0 +1,249 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Title')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-title" class="form-control" name="row[title]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('副标题')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-subtitle" class="form-control" name="row[subtitle]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Goal')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-goal" class="form-control" name="row[goal]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Minimum')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-minimum" class="form-control" name="row[minimum]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Maxmum')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-maxmum" class="form-control" name="row[maxmum]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('One_category_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-one_category_id" data-rule="required" data-source="category/lists?type=one" data-field="name" class="form-control selectpage" name="row[one_category_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Two_category_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-two_category_id" data-rule="required" data-source="category/lists?type=two"  data-field="name"  data-params='{"custom[pid]":""}' class="form-control selectpage" name="row[two_category_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('所属新闻')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-news_id"   data-source="news/index"  data-field="title"   class="form-control selectpage" name="row[news_id]" type="text" value="">
+            <p style="color: #ccc;font-size:12px">如无关联新闻此处可不填</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('详情Banner图')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-home_image" class="form-control" size="50" name="row[home_image]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-home_image" class="btn btn-danger faupload" data-input-id="c-home_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-home_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-home_image" class="btn btn-primary fachoose" data-input-id="c-home_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-home_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-home_image"></ul>
+            <p style="color: #ccc;font-size:12px">图片建议尺寸：1920 x 1000像素(不固定，自适应)</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Cover_image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-cover_image" class="form-control" size="50" name="row[cover_image]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-cover_image" class="btn btn-danger faupload" data-input-id="c-cover_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-cover_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-cover_image" class="btn btn-primary fachoose" data-input-id="c-cover_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-cover_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-cover_image"></ul>
+            <p style="color: #ccc;font-size:12px">图片建议尺寸：750 x 520像素</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Detail_image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-detail_image" class="form-control" size="50" name="row[detail_image]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-detail_image" class="btn btn-danger faupload" data-input-id="c-detail_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-detail_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-detail_image" class="btn btn-primary fachoose" data-input-id="c-detail_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-detail_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-detail_image"></ul>
+            <p style="color: #ccc;font-size:12px">图片建议尺寸：750 x 520像素</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('首页图一')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-home_one_image" class="form-control" size="50" name="row[home_one_image]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-home_one_image" class="btn btn-danger faupload" data-input-id="c-home_one_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-home_one_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-home_one_image" class="btn btn-primary fachoose" data-input-id="c-home_one_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-home_one_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-home_one_image"></ul>
+            <p style="color: #ccc;font-size:12px">首页单独项目展示图片建议尺寸：274 x 390像素</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('首页图二')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-home_two_image" class="form-control" size="50" name="row[home_two_image]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-home_two_image" class="btn btn-danger faupload" data-input-id="c-home_two_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-home_two_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-home_two_image" class="btn btn-primary fachoose" data-input-id="c-home_two_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-home_two_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-home_two_image"></ul>
+            <p style="color: #ccc;font-size:12px">首页单独项目展示图片建议尺寸：274 x 390像素</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Desc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-desc" class="form-control editor" rows="5" name="row[desc]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">PC{:__('Desc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-content" class="form-control editor" rows="5" name="row[content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Weigh')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-weigh" data-rule="required" class="form-control" name="row[weigh]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Create_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-create_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Update_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-update_time" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[update_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('是否首页推荐')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <input  id="c-is_recommend" name="row[is_recommend]" type="hidden" value="0">
+            <a href="javascript:;" data-toggle="switcher" class="btn-switcher" data-input-id="c-is_recommend" data-yes="1" data-no="0" >
+                <i class="fa fa-toggle-on text-success fa-flip-horizontal text-gray fa-2x"></i>
+            </a>
+        </div>
+        <p style="color: #ccc;">首页最多展示1条</p>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('是否首页显示')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <input  id="c-is_home" name="row[is_home]" type="hidden" value="0">
+            <a href="javascript:;" data-toggle="switcher" class="btn-switcher" data-input-id="c-is_recommend" data-yes="1" data-no="0" >
+                <i class="fa fa-toggle-on text-success fa-flip-horizontal text-gray fa-2x"></i>
+            </a>
+        </div>
+        <p style="color: #ccc;">首页最多展示3条</p>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('支付标题')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_title" data-rule="required" class="form-control" name="row[pay_title]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('支付描述')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_desc" data-rule="required" class="form-control" name="row[pay_desc]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('默认支付金额')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-default_price" data-rule="required" class="form-control" name="row[default_price]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('最小支付金额')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-min_fee" data-rule="required" class="form-control" name="row[min_fee]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('最大支付金额')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-max_fee" data-rule="required" class="form-control" name="row[max_fee]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">支付金额</label>
+        <a href="javascript:;" class="btn btn-success btn-add" onclick="addPayFee()"><i class="fa fa-plus"></i>添加</a>
+        <div class="col-xs-12 col-sm-8" id="payModel">
+            <div class="col-xs-3 tp-5" style="display:flex; justify-content: space-between">
+                <input type="text " class="form-control" name="row[pay_list][]" placeholder="">
+                <a href="javascript:;" class="btn btn-danger btn-del" style="padding-left: 10px" onclick="delObj(this)">删除</a>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('手续费')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rate" data-rule="required" class="form-control" name="row[rate]" type="number" value="">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>
+<style>
+    .tp-5{
+        margin-top: 10px;
+    }
+</style>
+<script>
+    function addPayFee() {
+        let html = `<div class="col-xs-3 tp-5" style="display:flex; justify-content: space-between">
+                <input type="text " class="form-control" name="row[pay_list][]" placeholder="">
+                <a href="javascript:;" class="btn btn-danger btn-del" style="padding-left: 10px" onclick="delObj(this)">删除</a>
+            </div>`;
+        $('#payModel').append(html);
+    }
+
+    function delObj(obj) {
+        $(obj).parent().remove();
+    }
+</script>
